@@ -34,19 +34,81 @@
           </ul>
         </section>
         <section>
-          <section>
-            <h1>Tailwind</h1>
+          <!--setup-->
+          <section data-markdown>
+            <textarea data-template>
+              # Our Playground for Today
+              ---
+              ## Exercise Repo
+              ```
+              $ git clone https://github.com/tklepzig/css-workshop-exercise
+              $ npm i
+              $ npm run dev
+              ```
+              ---
+              ## Using Tailwind
+              - Our design tokens are available
+              - `input.css`
+                - Tailwind Directives
+              - `output.css`
+                - Final CSS
+                - Contains only used classes <!-- .element: class="highlight fragment" data-fragment-index="2"-->
+              ---
+              Only used classes are generated
+              ```jsx
+              const Blubb = () => <h1 className="mt-1 pt-1">Headline</h1>;
+              ```
+              ```[]
+              .mt-1 {
+                margin-top: 0.25rem;
+              }
+
+              .pt-1 {
+                padding-top: 0.25rem;
+              }
+              ```
+              ---
+              Order of definition decides who wins (ignoring specificity), never the className string
+              ```jsx
+              const Blubb = () => <h1 className="mt-2 mt-1 pt-1">Has mt-2</h1>;
+              ```
+              ```[]
+              .mt-1 {
+                margin-top: 0.25rem;
+              }
+
+              .mt-2 {
+                margin-top: 0.5rem;
+              }
+
+              .pt-1 {
+                padding-top: 0.25rem;
+              }
+
+              ```
+              ---
+              ## IDE Configuration
+              - Auto Completion and Details
+              ![](assets/tailwind-ide.png)
+              - Support for `cx` & `cva`
+              ---
+              ## cx
+              Group CSS classes into groups, support for variables or conditionals
+              ```
+              className={cx('mt-1')}
+              ```
+              ---
+              ## cva
+              Allow conditional styling based on variants
+              ```
+              className={cva('mt-1', {
+                variants: { pos: { top: 'top-0', bottom: 'bottom-0' }}
+              })({ pos })}
+              ```
+            </textarea>
           </section>
-          <section>
-            We'll focus on Tailwind -> IDE configuration (auto completion, show
-            details of class, support for cx and cva -> we'll configure that
-            beginning of the first exercise)
-          </section>
-          <section>
-            <h1>How tailwind works (scratching on the surface)</h1>
-          </section>
-          <section>Tools for using tailwind: cx, cva</section>
         </section>
+
         <section>
           <section>Inline vs Block</section>
           <section>
@@ -61,11 +123,6 @@
         <section>Positioning</section>
         <section data-background="https://i.imgur.com/iWKad22.jpg"></section>
 
-        <section>
-          <pre><code class="css" data-line-numbers>.blubb {
-  background: red;
-}</code></pre>
-        </section>
         <section>
           Alignment baseline
           <img src="assets/align-baseline.png" alt="" width="600" />
