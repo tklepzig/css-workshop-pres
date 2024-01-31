@@ -386,6 +386,9 @@ section.has-light-background, section.has-light-background h1, section.has-light
   color: inherit;
   padding: 0;
 }
+.reveal li {
+  line-height: 1.5;
+}
 .reveal pre {
   font-size: 0.55em;
   width: auto;
