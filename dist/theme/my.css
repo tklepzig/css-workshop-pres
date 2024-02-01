@@ -398,6 +398,9 @@ section.has-light-background, section.has-light-background h1, section.has-light
   background-color: #3f3f3f;
   color: white;
 }
+.reveal pre > code {
+  padding: 0.2rem;
+}
 .reveal .hljs.has-highlights tr:not(.highlight-line) {
   opacity: 0.3;
   filter: saturate(0.3);

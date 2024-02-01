@@ -60,7 +60,7 @@
                 - Final CSS
               - Our design tokens are available
               ---
-              Only used classes are generated
+              Only used classes are generated during build
               ```jsx
               const Blubb = () => <h1 className="mt-1 pt-1">Headline</h1>;
               ```
@@ -75,16 +75,30 @@
               }
               ```
               ---
+              &rarr; Never built a classname with variables
+              ```[]jsx
+              const token = "2";
+              const Blubb = () =>
+                  <h1 className={`mb-${token} mt-1`}>Headline</h1>;
+              ```
+              ```[]
+              // output.css
+              .mt-1 {
+                margin-top: 0.25rem;
+              }
+              ```
+              ---
               ## Specificity
               - Besides the order of definition, specificity defines which CSS rule wins
               - Specificity Order: Inline > Id > Class > Element
               - `!important` overwrites everything, should be avoided
               ---
-              With only simple classes, order of definition decides who wins, never the `className` string
+              With only single class rules, order of definition decides who wins, never the `className` string
               ```jsx
               const Blubb = () => <h1 className="mt-2 mt-1 pt-1">Has mt-2</h1>;
               ```
               ```[]
+              // output.css
               .mt-1 {
                 margin-top: 0.25rem;
               }
@@ -101,16 +115,27 @@
               ---
               ## cx
               Group CSS classes into groups, support for variables or conditionals
-              ```
+              ```[1|2|3-7]jsx
               className={cx('mt-1')}
+              className={cx('mt-1', error && 'text-error-200')}
+              className={cx(
+                'rounded-t bg-ui-0 shadow-lg outline-0',
+                'grid grid-rows-[1fr_2fr_3fr]',
+                'md:rounded-b',
+              )}
               ```
               ---
               ## cva
               Allow conditional styling based on variants
-              ```
+              ```[1|2-7|8]jsx
               className={cva('mt-1', {
-                variants: { pos: { top: 'top-0', bottom: 'bottom-0' }}
-              })({ pos })}
+                variants: {
+                  pos: {
+                    top: 'top-0',
+                    bottom: 'bottom-0'
+                  }
+                }})
+              ({ pos: 'top' })}
               ```
               ---
               ## IDE Configuration

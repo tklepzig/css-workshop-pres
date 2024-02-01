@@ -94,6 +94,11 @@ $heading4Size: 1em;
     overflow: auto;
     background-color: #3f3f3f;
     color: white;
+
+    > code {
+      // fix jumping between first line and other lines when using fragments inside code
+      padding: 0.2rem;
+    }
   }
 
   .hljs {
