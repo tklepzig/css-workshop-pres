@@ -52,13 +52,13 @@
                 - Tailwind Directives
               - `output.css`
                 - Final CSS
-                - Contains only used classes <!-- .element: class="highlight fragment" data-fragment-index="2"-->
               ---
               Only used classes are generated
               ```jsx
               const Blubb = () => <h1 className="mt-1 pt-1">Headline</h1>;
               ```
               ```[]
+              // output.css
               .mt-1 {
                 margin-top: 0.25rem;
               }
@@ -68,7 +68,12 @@
               }
               ```
               ---
-              Order of definition decides who wins (ignoring specificity), never the className string
+              ## Specificity
+              - Besides the order of definition, specificity defines which CSS rule wins
+              - Specificity Order: Inline > Id > Class > Element
+              - `!important` overwrites everything, should be avoided
+              ---
+              With only simple classes, order of definition decides who wins, never the `className` string
               ```jsx
               const Blubb = () => <h1 className="mt-2 mt-1 pt-1">Has mt-2</h1>;
               ```
@@ -87,11 +92,6 @@
 
               ```
               ---
-              ## IDE Configuration
-              - Auto Completion and Details
-              ![](assets/tailwind-ide.png)
-              - Support for `cx` & `cva`
-              ---
               ## cx
               Group CSS classes into groups, support for variables or conditionals
               ```
@@ -105,6 +105,11 @@
                 variants: { pos: { top: 'top-0', bottom: 'bottom-0' }}
               })({ pos })}
               ```
+              ---
+              ## IDE Configuration
+              - Auto Completion and Details
+              ![](assets/tailwind-ide.png)
+              - Support for `cx` & `cva`
             </textarea>
           </section>
         </section>
