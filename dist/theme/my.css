@@ -19,7 +19,7 @@ section.has-light-background, section.has-light-background h1, section.has-light
   --r-block-margin: 20px;
   --r-heading-margin: 0 0 20px 0;
   --r-heading-font: Open Sans, sans-serif;
-  --r-heading-color: #007acc;
+  --r-heading-color: #0089e5;
   --r-heading-line-height: 1.2;
   --r-heading-letter-spacing: normal;
   --r-heading-text-transform: none;
@@ -370,7 +370,7 @@ section.has-light-background, section.has-light-background h1, section.has-light
   text-align: left;
 }
 .reveal blockquote {
-  border-left: 6px solid #007acc;
+  border-left: 6px solid #0089e5;
   padding-left: 1rem;
   width: auto;
 }
