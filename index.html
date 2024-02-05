@@ -27,14 +27,21 @@
         <section>
           <img src="assets/awesome.svg" alt="" height="600" />
         </section>
-        <section>
-          <h2>Agenda</h2>
-          <ul>
-            <li>WIP</li>
-          </ul>
+        <section data-markdown>
+          <textarea data-template>
+            ## Agenda (WIP)
+            - Introduction
+            - Talk about stuff
+            - Exercise 1
+            - Lunch Break
+            - Talk about stuff
+            - Exercise 2
+            - Talk about stuff
+            - Exercise 3
+          </textarea>
         </section>
         <section>
-          <!--setup-->
+          <!--introduction, playground repo-->
           <section data-markdown>
             <textarea data-template>
               # Our Playground for Today
@@ -149,16 +156,76 @@
           </section>
         </section>
 
+        <!--Units, calc()-->
+        <section>
+          <section data-markdown>
+            <textarea data-template>
+              # Units
+              ---
+              ## Different Types
+              - Absolute Units (`px`, `cm`, `mm`, ...)
+              - Relative Units based on parent font (`em`, ...)
+              - Relative Units based on root font (`rem`, ...)
+              - Relative Units based on viewport (`vw`, `vh`, ...)
+              - Special Units, only valid in certain contexts (Grid, Container Queries, ...)
+              ---
+              ## Why absolute units are bad
+              ![](assets/units1.png)
+              ![](assets/units2.png) <!-- .element: class="fragment" data-fragment-index="2" -->
+              ---
+              ## Relative to parent can be tricky
+              ![](assets/units1.png)
+              ![](assets/units3.png) <!-- .element: class="fragment" data-fragment-index="2" -->
+              ---
+              ## Using the Viewport as Reference
+              - `1vw` = 1% of the viewport width
+              - `50vw` = takes up half of the viewport width
+              - The same applies for `vh` and height
+              ---
+              ## Calculate with `calc()`
+              - Can handle different units
+              - Can be used e.g. for length, integer, angle, ...
+              - Supports `+`, `-`, `*`, `/`
+              - `-` and `+` must be surrounded by whitespace
+              ---
+              ```css
+              width: calc(100% - 20px);
+              ```
+              ```css
+              width: calc(10rem + 2px);
+              ```
+              ```css
+              width: calc(100% / 5); /* the same as width: 20% */
+              ```
+              ```css
+              z-index: calc(3 / 2); /* will be rounded to 2 */
+              ```
+              ---
+              ## Using tailwind
+              ```
+              <p className="w-[calc(100%-20px)]"></p>
+              ```
+              ```
+              <p className="w-[calc(10rem+2px)]"></p>
+              ```
+              ```
+              <p className="w-[calc(100%/5)]"></p>
+              ```
+              ```
+              <p className="z-[calc(3/2)]"></p>
+              ```
+            </textarea>
+          </section>
+        </section>
+
         <section data-markdown data-visibility="hidden">
           <textarea data-template>
-            - Units
             - Positioning
             - box model
             - sizing
             - Inline vs Block
             - Pseudo Elements and Classes
             - CSS Variables
-            - calc
             - Media and Container Queries
             - Flex vs. Grid: Differences, Pros & Cons
             - Grid "deep dive"
