@@ -41,34 +41,41 @@
           </textarea>
         </section>
         <section>
-          <!--introduction, playground repo-->
+          <!--tailwind basics-->
+          <section>
+            <section data-markdown>
+              <textarea data-template>
+              ## CSS, Do's and Don'ts
+              - Write less CSS to do more
+              - Use smart new features of CSS
+              - How to approach writing the markup w/o using trial and error in the DevTools
+              - Have fun!
+              </textarea>
+            </section>
+          </section>
+
+          <!--tailwind basics-->
           <section data-markdown>
             <textarea data-template>
-              # Our Playground for Today
+              # Tailwind Basics
               ---
-              ## Exercise Repo
-              ```sh
-              $ git clone https://github.com/tklepzig/css-workshop-exercise
-              ```
-              ```sh
-              $ cd css-workshop-exercise
-              ```
-              ```sh
-              $ npm whoami 2>/dev/null || npm login
-              ```
-              ```sh
-              $ npm i
-              ```
-              ```sh
-              $ npm run dev
-              ```
-              ---
-              ## Using Tailwind
+              ## Building CSS
               - `input.css`
                 - Tailwind Directives
               - `output.css`
                 - Final CSS
               - Our design tokens are available
+              ---
+              ## Tailwind Preflight
+              - Resets all browser defaults
+              - Enabled by default
+              - Is prepended to the `output.css`
+              - Can be disabled in the `tailwind.config.js`
+              ```
+              corePlugins: {
+                preflight: false,
+              },
+              ```
               ---
               Only used classes are generated during build
               ```jsx
@@ -146,16 +153,6 @@
                   }
                 }})
               ({ pos: 'top' })}
-              ```
-              ---
-              ## Tailwind Preflight
-              - Resets all browser defaults
-              - Enabled by default
-              - Can be disabled in the `tailwind.config.js`
-              ```
-              corePlugins: {
-                preflight: false,
-              },
               ```
               ---
               ## IDE Configuration
@@ -301,6 +298,12 @@
               ## Width & Height
                 - `w-1`, `min-w-1`, `max-w-1`
                 - `h-1`, `min-h-1`, `max-h-1`
+                - Depends on the `box-sizing` (see above)
+                - Good or bad? <!-- .element: class="fragment" data-fragment-index="2" -->
+
+                `className="w-[285px]"` <!-- .element: class="fragment" data-fragment-index="2" -->
+
+                &rarr; Bad <!-- .element: class="alert fragment" data-fragment-index="3" -->
               ---
               ## Why to avoid setting a width or height
                 - It controls the dimension from outside, ignoring the actual content
@@ -321,11 +324,24 @@
         <section>
           <section data-markdown>
             <textarea data-template>
-            - Show preflight on/off
-            - Show output.css
-            - Clone
-            - start
-            - where are the components
+              # Our Playground for Today
+              ---
+              ## Exercise Repo
+              ```sh
+              $ git clone https://github.com/tklepzig/css-workshop-exercise
+              ```
+              ```sh
+              $ cd css-workshop-exercise
+              ```
+              ```sh
+              $ npm whoami 2>/dev/null || npm login
+              ```
+              ```sh
+              $ npm i
+              ```
+              ```sh
+              $ npm run dev
+              ```
             </textarea>
           </section>
         </section>
