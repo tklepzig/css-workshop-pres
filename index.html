@@ -59,7 +59,7 @@
             <textarea data-template>
               # Tailwind Basics
               ---
-              ## Building CSS
+              ## In our exercise repo
               - `input.css`
                 - Tailwind Directives
               - `output.css`
@@ -92,7 +92,7 @@
               }
               ```
               ---
-              &rarr; Never built a classname with variables
+              &rarr; Never built a classname with variables!
               ```[]jsx
               const token = "2";
               const Blubb = () =>
@@ -110,7 +110,7 @@
               - Specificity Order: Inline > Id > Class > Element
               - `!important` overwrites everything, should be avoided
               ---
-              With only single class rules, order of definition decides who wins, never the `className` string
+              When using Tailwind: Order of definition decides who wins, not the order in the `className` string
               ```jsx
               const Blubb = () => <h1 className="mt-2 mt-1 pt-1">Has mt-2</h1>;
               ```
@@ -132,9 +132,13 @@
               ---
               ## cx
               Group CSS classes into groups, support for variables or conditionals
-              ```[1|2|3-7]jsx
+              ```jsx
               className={cx('mt-1')}
+              ```
+              ```jsx
               className={cx('mt-1', error && 'text-error-200')}
+              ```
+              ```jsx
               className={cx(
                 'rounded-t bg-ui-0 shadow-lg outline-0',
                 'grid grid-rows-[1fr_2fr_3fr]',
@@ -144,7 +148,7 @@
               ---
               ## cva
               Allow conditional styling based on variants
-              ```[1|2-7|8]jsx
+              ```[]jsx
               className={cva('mt-1', {
                 variants: {
                   pos: {
@@ -181,8 +185,7 @@
               ![](assets/units2.png) <!-- .element: class="fragment" data-fragment-index="2" -->
               ---
               ## Relative to parent can be tricky
-              ![](assets/units1.png)
-              ![](assets/units3.png) <!-- .element: class="fragment" data-fragment-index="2" -->
+              ![](assets/units3.png)
               ---
               ## Using the Viewport as Reference
               - `1vw` = 1% of the viewport width
@@ -252,11 +255,9 @@
               - Can be used to move the element relative to its original position
               ---
               ![](assets/relative.png)
+
               ```
-              .second-div {
-                position: relative;
-                top: -0.5rem;
-              }
+              <div className="relative -top-2"></div>
               ```
               ---
               ## Absolute Positioning
