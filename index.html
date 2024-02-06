@@ -315,6 +315,66 @@
           </section>
         </section>
 
+        <!--Inline vs. Block-->
+        <section>
+          <section data-markdown>
+            <textarea data-template>
+              # Block vs. Inline
+              ---
+              ![](assets/inline-block1.png)
+              ```jsx
+              // Green Box Style
+              <div className="py-3 px-1 m-2"></div>
+              ```
+              ---
+              ## Inline-Elements
+              - Sits inline with other elements
+              - Width and height don't apply
+              - Only left and right padding, margin, and border will move other elements away
+              - Top and bottom padding, margin, and borders can be applied but won't move
+              other elements away
+              ---
+              ![](assets/inline-block2.png)
+              ```jsx
+              // Green Box Style
+              <div className="py-3 px-1 m-2"></div>
+              ```
+              ---
+              ## Block-Elements
+              - Breaks onto new line
+              - Padding, margin, and border separate it from other elements on the page
+              - When width isn't specified, the box takes up the entire available space
+              - Width and Height are respected
+              ---
+              ![](assets/inline-block3.png)
+              ```jsx
+              // Green Box Style
+              <div className="py-3 px-1 m-2"></div>
+              ```
+              ---
+              ## Inline-Block-Elements
+              - Combine inline and block
+              - Respect width and height
+              - Respect padding, margin, and border
+              - Don't break onto a new line
+              ---
+              ![](assets/inline-block4.png)
+              ```jsx
+              // Green Box Style
+              <div className="py-3 px-1 m-2"></div>
+              ```
+              ---
+              ## How to set it
+
+              - Either use element which has the desired display type by default, e.g.
+                - `span`, `a` (inline)
+                - `div`, `p`, `h1` (block)
+                - `input`, `select` (inline-block)
+              - Or set it explicitly by using the tailwind classes `inline`, `block`, `inline-block` 
+            </textarea>
+          </section>
+        </section>
+
         <section>
           <section data-markdown>
             <textarea data-template></textarea>
@@ -348,7 +408,6 @@
 
         <section data-markdown data-visibility="hidden">
           <textarea data-template>
-            - Inline vs Block
             - Pseudo Elements and Classes
             - CSS Variables
             - Media and Container Queries
