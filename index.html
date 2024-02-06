@@ -148,6 +148,16 @@
               ({ pos: 'top' })}
               ```
               ---
+              ## Tailwind Preflight
+              - Resets all browser defaults
+              - Enabled by default
+              - Can be disabled in the `tailwind.config.js`
+              ```
+              corePlugins: {
+                preflight: false,
+              },
+              ```
+              ---
               ## IDE Configuration
               - Auto Completion and Details
               ![](assets/tailwind-ide.png)
@@ -218,11 +228,110 @@
           </section>
         </section>
 
+        <!--Position and Size-->
+        <section>
+          <section data-markdown>
+            <textarea data-template>
+              # Position and Dimensions
+              ---
+              ## Position
+              |            |                                                        |
+              | ---------- | ------------------------------------------------------ |
+              | `static`   | Normal flow, default                                   |
+              | `relative` | Relative to its normal position                        |
+              | `absolute` | Relative to nearest parent with `position` != `static` |
+              | `fixed`    | Relative to the viewport                               |
+              | `sticky`   | Like `relative`, when scrolling like `fixed`           |
+              ---
+              ## Specify Position
+              - `top`
+              - `left`
+              - `bottom`
+              - `right`
+              ---
+              ## Relative Positioning
+              - **Only** setting `relative` has no effect on the element itself
+              - Useful in combination with absolute children
+              - Can be used to move the element relative to its original position
+              ---
+              ![](assets/relative.png)
+              ```
+              .second-div {
+                position: relative;
+                top: -0.5rem;
+              }
+              ```
+              ---
+              ## Absolute Positioning
+              - Removes the element from the normal flow
+              - When setting both values on one axis, the element will be stretched between them
+              ---
+              ![](assets/absolute1.png)
+              ![](assets/absolute2.png) <!-- .element: class="fragment" data-fragment-index="2" -->
+              ---
+              ## Box Model
+              ![](assets/box-model.png)
+              ---
+              ## `box-sizing: content-box`
+              ![](assets/content-box.png)
+
+              &rarr; `className="box-content"`
+
+              &rarr; Browser Default
+              ---
+              ## `box-sizing: border-box`
+              ![](assets/border-box.png)
+
+              &rarr; `className="box-border"`
+
+              &rarr; Tailwind Default (via Preflight)
+              ---
+              ## Padding & Margin
+              - Padding (e.g. `p-1`, `px-1`)
+                - inside the border
+                - extends the clickable area
+              - Margin (e.g. `m-1`, `my-1`)
+                - outside the border
+                - space between elements
+              ---
+              ## Why to avoid Margin
+              - Space between elements should be controlled by the parent, the layout container
+              - The element can not know in which context it will be used, which siblings it will have
+              ---
+              ## Width & Height
+                - `w-1`, `min-w-1`, `max-w-1`
+                - `h-1`, `min-h-1`, `max-h-1`
+              ---
+              ## Why to avoid setting a width or height
+                - It controls the dimension from outside, ignoring the actual content
+                - Dimensions could be to small because of
+                  - Content gets longer (i18n)
+                  - Font size changes
+                  - Different screen sizes (responsive design)
+            </textarea>
+          </section>
+        </section>
+
+        <section>
+          <section data-markdown>
+            <textarea data-template></textarea>
+          </section>
+        </section>
+
+        <section>
+          <section data-markdown>
+            <textarea data-template>
+            - Show preflight on/off
+            - Show output.css
+            - Clone
+            - start
+            - where are the components
+            </textarea>
+          </section>
+        </section>
+
         <section data-markdown data-visibility="hidden">
           <textarea data-template>
-            - Positioning
-            - box model
-            - sizing
             - Inline vs Block
             - Pseudo Elements and Classes
             - CSS Variables
