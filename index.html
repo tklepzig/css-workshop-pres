@@ -614,9 +614,54 @@
           </section>
         </section>
 
+        <!--Custom Properties (Variables)-->
+        <section>
+          <section data-markdown>
+            <textarea data-template>
+            # Custom Properties (Variables)
+            ---
+            - --name: value
+            - var(--name)
+            - var(--name, default)
+            - :root
+            - case sensitive
+            - Some nice and smart samples
+            wip
+            </textarea>
+          </section>
+        </section>
+
         <section>
           <section data-markdown>
             <textarea data-template></textarea>
+          </section>
+        </section>
+
+        <!-- Flexbox -->
+        <section>
+          <section data-markdown>
+            <textarea data-template>
+            # Flexbox
+            ---
+            - Suitable for simple one-dimensional layouts
+            - If too complex: Style splattered over parent and children
+            - If two-dimensional: More HTML elements needed for nesting, markup gets bloated
+            - Width/Height vs flex-basis and strange values when growing or shrinking
+            - align-items, align-self, justify-content
+            - wrap -> align-content
+            - 2D flex layout zeigen als bad example --> Überleitung zu Grid
+            </textarea>
+          </section>
+        </section>
+
+        <!-- Grid -->
+        <section>
+          <section data-markdown>
+            <textarea data-template>
+            # Grid
+            ---
+            wip
+            </textarea>
           </section>
         </section>
 
@@ -647,8 +692,6 @@
 
         <section data-markdown data-visibility="hidden">
           <textarea data-template>
-            - Pseudo Elements and Classes
-            - CSS Variables
             - Media and Container Queries
             - Flex vs. Grid: Differences, Pros & Cons
             - "What is wrong here" questions
@@ -658,7 +701,6 @@
                 grid-template-areas: 'main';
               }
               ```
-            - Grid "deep dive"
             - Alignment (... baseline)
             - Ways of defining rows/cols (repeat, fix, fr, fit-content(), min-content, max-content, auto)
             - Implicit rows/cols, auto rows/cols
