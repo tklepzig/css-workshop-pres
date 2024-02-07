@@ -568,15 +568,50 @@
             ## The pseudo class `:has()`
             - Very powerful
             - Enables to style by "walking up the tree"
+            - It checks whether a relative selector matches the element
+            - Unlike class sibling and similar selectors it styles the first, not the last element in the expression
             ---
             ## Classic CSS Rule
-            - `p > a` &rarr; Style applies to the last element in the chain (the `a`)
-            - How to style a `p` when it contains an `a`?
+            - `div + a` &rarr; Style applies to the last element (the `a`)
+            - How to style a `div` when it is followed by an `a`?
 
-            `p:has(a) { ... }` <!-- .element: class="fragment" data-fragment-index="2" -->
+            `div:has(+a) { ... }` <!-- .element: class="fragment" data-fragment-index="2" -->
             ---
             ## :has() in Tailwind
-            - wip
+            Available as modifier `has-[]:`
+
+            ```[]html
+            <div className="has-[+a]:bg-primary-30"></div>
+            <a href="http://www.example.com">Link</a>
+            ```
+            ---
+            Specify pseudo classes or multiple elements
+            ```[]html
+            <div className="has-[:checked]:bg-primary-30">
+              <input type="checkbox" checked />
+            </div>
+            ```
+            ```[]html
+            <div className="has-[span,button]:bg-primary-30">
+              <button>Click</button>
+            </div>
+            ```
+            Expression can also be complex
+            ```[]html
+            <div className="has-[span+a>svg]:bg-primary-30">
+              <span>Anything</span>
+              <a className="" href="http://www.example.com">
+                <svg />
+              </a>
+            </div>
+            ```
+            ---
+            ## Style depending on sibling-state: `peer-`
+            wip
+            ---
+            ## Style depending on parent-state: `group-`
+            wip
+            ---
             </textarea>
           </section>
         </section>
@@ -618,6 +653,13 @@
             - CSS Variables
             - Media and Container Queries
             - Flex vs. Grid: Differences, Pros & Cons
+            - "What is wrong here" questions
+              ```
+              .container {
+                grid: 1fr;
+                grid-template-areas: 'main';
+              }
+              ```
             - Grid "deep dive"
             - Alignment (... baseline)
             - Ways of defining rows/cols (repeat, fix, fr, fit-content(), min-content, max-content, auto)
