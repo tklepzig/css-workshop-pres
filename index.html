@@ -163,15 +163,13 @@
               - Our design tokens are available
               ---
               ## Tailwind Preflight
-              - Resets all browser defaults
               - Enabled by default
               - Is prepended to the `output.css`
-              - Can be disabled in the `tailwind.config.js`
-              ```
-              corePlugins: {
-                preflight: false,
-              },
-              ```
+              - Resets all browser default styles
+              - No overwrite of unwanted existing styles is needed
+
+              ![](assets/button-preflight-off.png) <!-- .element: class="fragment" data-fragment-index="2" -->
+              ![](assets/button-preflight-on.png) <!-- .element: class="fragment" data-fragment-index="3" -->
               ---
               Only used classes are generated during build
               ```jsx
@@ -188,7 +186,6 @@
               }
               ```
               ---
-              &rarr; Never built a classname with variables!
               ```[]jsx
               const token = "2";
               const Blubb = () =>
@@ -200,6 +197,8 @@
                 margin-top: 0.25rem;
               }
               ```
+
+              *&rarr; Never built a class name at runtime!*
               ---
               ## Specificity
               - Besides the order of definition, specificity defines which CSS rule wins
