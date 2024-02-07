@@ -20,6 +20,70 @@
       href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600"
       rel="stylesheet"
     />
+    <style>
+      .olive {
+        background: #450;
+      }
+
+      .teal {
+        background: #055;
+      }
+
+      .orange {
+        background: #a70;
+      }
+
+      .blue {
+        background: #036;
+      }
+
+      .sticky-container-v {
+        overflow: auto;
+        width: 26rem;
+        margin: auto;
+        height: 20rem;
+        border: 1px solid #0089e5;
+
+        & > div {
+          height: 3rem;
+          margin: 0.5rem 0;
+
+          &.sticky {
+            position: sticky;
+            top: 0;
+            font-size: 26px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+        }
+      }
+
+      .sticky-container-h {
+        display: flex;
+        justify-content: start;
+        gap: 0.5rem;
+        overflow: auto;
+        width: 40rem;
+        margin: auto;
+        border: 1px solid #0089e5;
+
+        & > div {
+          display: inline-block;
+          height: 5rem;
+          flex: 0 0 8rem;
+
+          &.sticky {
+            position: sticky;
+            left: 0;
+            font-size: 26px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+        }
+      }
+    </style>
   </head>
   <body>
     <div class="reveal">
@@ -267,19 +331,44 @@
               ![](assets/absolute1.png)
               ![](assets/absolute2.png) <!-- .element: class="fragment" data-fragment-index="2" -->
               ---
-              ## Sticky
-              <div style="overflow: auto; width: 26rem; margin: auto; height: 12rem; border: 1px solid #0089e5">
-                <div style="background: #450; height: 3rem; margin: 0.5rem 0;"></div>
-                <div style="background: #055; height: 3rem; margin: 0.5rem 0;"></div>
-                <div style="background: #a70; height: 3rem; margin: 0.5rem 0; position: sticky; top: 0;"></div>
-                <div style="background: #036; height: 3rem; margin: 0.5rem 0;"></div>
-                <div style="background: #450; height: 3rem; margin: 0.5rem 0;"></div>
-                <div style="background: #055; height: 3rem; margin: 0.5rem 0;"></div>
-                <div style="background: #036; height: 3rem; margin: 0.5rem 0;"></div>
+              ## Sticky Positioning
+              - Stays in the normal flow
+              - When element is starting to "scroll away", it will stick depending on the given `top`/`bottom`/`left`/`right` value
+              ---
+              <div class="sticky-container-v">
+                <div class="olive"></div>
+                <div class="teal"></div>
+                <div class="orange sticky">Sticky</div>
+                <div class="olive"></div>
+                <div class="teal"></div>
+                <div class="blue"></div>
+                <div class="teal"></div>
+                <div class="olive"></div>
+                <div class="blue"></div>
+                <div class="olive"></div>
+                <div class="teal"></div>
               </div>
 
               ```
               <div className="sticky top-0"></div>
+              ```
+              ---
+              <div class="sticky-container-h">
+                <div class="olive"></div>
+                <div class="teal"></div>
+                <div class="orange sticky">Sticky</div>
+                <div class="olive"></div>
+                <div class="teal"></div>
+                <div class="blue"></div>
+                <div class="teal"></div>
+                <div class="olive"></div>
+                <div class="blue"></div>
+                <div class="olive"></div>
+                <div class="teal"></div>
+              </div>
+
+              ```
+              <div className="sticky left-0"></div>
               ```
               ---
               ## Box Model
