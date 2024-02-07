@@ -292,22 +292,7 @@
               - Can handle different units
               - Can be used e.g. for length, integer, angle, ...
               - Supports `+`, `-`, `*`, `/`
-              - `-` and `+` must be surrounded by whitespace
               ---
-              ```css
-              width: calc(100% - 20px);
-              ```
-              ```css
-              width: calc(10rem + 2px);
-              ```
-              ```css
-              width: calc(100% / 5); /* the same as width: 20% */
-              ```
-              ```css
-              z-index: calc(3 / 2); /* will be rounded to 2 */
-              ```
-              ---
-              ## Using tailwind
               ```html
               <p className="w-[calc(100%-20px)]"></p>
               ```
@@ -315,9 +300,11 @@
               <p className="w-[calc(10rem+2px)]"></p>
               ```
               ```html
+              /* the same as w-[20%] */
               <p className="w-[calc(100%/5)]"></p>
               ```
               ```html
+              /* will be rounded to 2 */
               <p className="z-[calc(3/2)]"></p>
               ```
             </textarea>
