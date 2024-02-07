@@ -83,6 +83,41 @@
           }
         }
       }
+
+      .pseudo-class-sample {
+        border: 1px solid #0089e5;
+
+        & > p:first-child {
+          color: red;
+        }
+      }
+
+      .pseudo-element-sample {
+        border: 1px solid #0089e5;
+
+        & > p:first-child:first-letter {
+          font-size: 6rem;
+        }
+      }
+
+      .content-sample-1 {
+        border: 1px solid #0089e5;
+        padding: 1rem;
+
+        & > a::after {
+          font-style: italic;
+          content: " (Click me)";
+        }
+      }
+
+      .content-sample-2 {
+        border: 1px solid #0089e5;
+        padding: 1rem;
+
+        & > a::after {
+          content: " (" attr(href) ")";
+        }
+      }
     </style>
   </head>
   <body>
@@ -109,7 +144,7 @@
           <section>
             <section data-markdown>
               <textarea data-template>
-              ## CSS, Do's and Don'ts
+              ## CSS, Do's and Don'ts WIP
               - Write less CSS to do more
               - Use smart new features of CSS
               - How to approach writing the markup w/o using trial and error in the DevTools
@@ -145,7 +180,7 @@
               ```jsx
               const Blubb = () => <h1 className="mt-1 pt-1">Headline</h1>;
               ```
-              ```[]
+              ```[]css
               // output.css
               .mt-1 {
                 margin-top: 0.25rem;
@@ -162,7 +197,7 @@
               const Blubb = () =>
                   <h1 className={`mb-${token} mt-1`}>Headline</h1>;
               ```
-              ```[]
+              ```[]css
               // output.css
               .mt-1 {
                 margin-top: 0.25rem;
@@ -178,7 +213,7 @@
               ```jsx
               const Blubb = () => <h1 className="mt-2 mt-1 pt-1">Has mt-2</h1>;
               ```
-              ```[]
+              ```[]css
               // output.css
               .mt-1 {
                 margin-top: 0.25rem;
@@ -276,27 +311,27 @@
               ```
               ---
               ## Using tailwind
-              ```
+              ```html
               <p className="w-[calc(100%-20px)]"></p>
               ```
-              ```
+              ```html
               <p className="w-[calc(10rem+2px)]"></p>
               ```
-              ```
+              ```html
               <p className="w-[calc(100%/5)]"></p>
               ```
-              ```
+              ```html
               <p className="z-[calc(3/2)]"></p>
               ```
             </textarea>
           </section>
         </section>
 
-        <!--Position and Size-->
+        <!-- Position and Size -->
         <section>
           <section data-markdown>
             <textarea data-template>
-              # Position and Dimensions
+              # Position and Size
               ---
               ## Position
               |            |                                                        |
@@ -320,7 +355,7 @@
               ---
               ![](assets/relative.png)
 
-              ```
+              ```html
               <div className="relative -top-2"></div>
               ```
               ---
@@ -330,6 +365,9 @@
               ---
               ![](assets/absolute1.png)
               ![](assets/absolute2.png) <!-- .element: class="fragment" data-fragment-index="2" -->
+              ```html
+              <div className="absolute top-0">Absolute</div>
+              ```
               ---
               ## Sticky Positioning
               - Stays in the normal flow
@@ -349,10 +387,11 @@
                 <div class="teal"></div>
               </div>
 
-              ```
+              ```html
               <div className="sticky top-0"></div>
               ```
               ---
+              Works also horizontally
               <div class="sticky-container-h">
                 <div class="olive"></div>
                 <div class="teal"></div>
@@ -367,26 +406,12 @@
                 <div class="teal"></div>
               </div>
 
-              ```
+              ```html
               <div className="sticky left-0"></div>
               ```
               ---
               ## Box Model
               ![](assets/box-model.png)
-              ---
-              ## `box-sizing: content-box`
-              ![](assets/content-box.png)
-
-              &rarr; `className="box-content"`
-
-              &rarr; Browser Default
-              ---
-              ## `box-sizing: border-box`
-              ![](assets/border-box.png)
-
-              &rarr; `className="box-border"`
-
-              &rarr; Tailwind Default (via Preflight)
               ---
               ## Padding & Margin
               - Padding (e.g. `p-1`, `px-1`)
@@ -403,12 +428,21 @@
               ## Width & Height
                 - `w-1`, `min-w-1`, `max-w-1`
                 - `h-1`, `min-h-1`, `max-h-1`
-                - Depends on the `box-sizing` (see above)
-                - Good or bad? <!-- .element: class="fragment" data-fragment-index="2" -->
+                - Depends on the `box-sizing` value
+              ---
+              ## `box-sizing: content-box`
+              ![](assets/content-box.png)
 
-                `className="w-[285px]"` <!-- .element: class="fragment" data-fragment-index="2" -->
+              &rarr; `className="box-content"`
 
-                &rarr; Bad <!-- .element: class="alert fragment" data-fragment-index="3" -->
+              &rarr; Browser Default
+              ---
+              ## `box-sizing: border-box`
+              ![](assets/border-box.png)
+
+              &rarr; `className="box-border"`
+
+              &rarr; Tailwind Default (via Preflight)
               ---
               ## Why to avoid setting a width or height
                 - It controls the dimension from outside, ignoring the actual content
@@ -427,8 +461,8 @@
               # Block vs. Inline
               ---
               ![](assets/inline-block1.png)
-              ```jsx
-              // Green Box Style
+              ```html
+              <!-- Green Box Style -->
               <div className="py-3 px-1 m-2"></div>
               ```
               ---
@@ -440,8 +474,8 @@
               other elements away
               ---
               ![](assets/inline-block2.png)
-              ```jsx
-              // Green Box Style
+              ```html
+              <!-- Green Box Style -->
               <div className="py-3 px-1 m-2"></div>
               ```
               ---
@@ -452,8 +486,8 @@
               - Width and Height are respected
               ---
               ![](assets/inline-block3.png)
-              ```jsx
-              // Green Box Style
+              ```html
+              <!-- Green Box Style -->
               <div className="py-3 px-1 m-2"></div>
               ```
               ---
@@ -464,8 +498,8 @@
               - Don't break onto a new line
               ---
               ![](assets/inline-block4.png)
-              ```jsx
-              // Green Box Style
+              ```html
+              <!-- Green Box Style -->
               <div className="py-3 px-1 m-2"></div>
               ```
               ---
@@ -476,6 +510,95 @@
                 - `div`, `p`, `h1` (block)
                 - `input`, `select` (inline-block)
               - Or set it explicitly by using the tailwind classes `inline`, `block`, `inline-block` 
+            </textarea>
+          </section>
+        </section>
+
+        <!--Pseudo Elements and Classes-->
+        <section>
+          <section data-markdown>
+            <textarea data-template>
+            # Pseudo Classes and Elements
+            ---
+            ## Pseudo Classes
+            - Represent the special state of an element
+            - Starts in CSS with one colon
+            - In Tailwind: Represented as modifier, ends with one colon
+            - `hover:`, `focus:`, `active:`, `first:`, ...
+            - E.g. `hover:bg-blue-500`
+            ---
+            <div class="pseudo-class-sample">
+              <p>First</p>
+              <p>Second</p>
+            </div>
+
+            ```html
+            <div>
+              <p className="first:text-red">First</p>
+              <p className="first:text-red">Second</p>
+            </div>
+            ```
+            ---
+            ## Pseudo Elements
+            - Represent a part of an element
+            - Starts in CSS with two colons
+            - Represented in Tailwind as modifier, ends with one colon
+            - `before:`, `after:`, `first-letter:`, ...
+            - E.g. `first-letter:text-7xl`
+            ---
+            <div class="pseudo-element-sample">
+              <p>Once upon a time ...</p>
+            </div>
+
+            ```html
+            <p className="first-letter:text-7xl">Once upon a time ...</p>
+            ```
+            ---
+            ## The `content` Property
+            - Only applies to pseudo elements
+            - Can be used to insert generated content
+            ---
+            <div class="content-sample-1">
+              <a href="http://www.example.com">Link</a>
+            </div>
+
+            ```[]html
+            <a
+              href="http://www.example.com"
+              className="after:italic after:content-['_Click_me']">
+              Link
+            </a>
+            ```
+            ---
+            ## The `attr()` Function
+            - Currently only supported for the `content` property
+            - Can be used to insert the value of an attribute
+            ---
+            <div class="content-sample-2">
+              <a href="http://www.example.com">Link</a>
+            </div>
+
+            ```[]html
+            <a
+              href="http://www.example.com"
+              className="after:content-['_('_attr(href)_')']">
+              Link
+            </a>
+            ```
+            &rarr; Useful for links when printing a page
+            ---
+            ## The pseudo class `:has()`
+            - Very powerful
+            - Enables to style by "walking up the tree"
+            ---
+            ## Classic CSS Rule
+            - `p > a` &rarr; Style applies to the last element in the chain (the `a`)
+            - How to style a `p` when it contains an `a`?
+
+            `p:has(a) { ... }` <!-- .element: class="fragment" data-fragment-index="2" -->
+            ---
+            ## :has() in Tailwind
+            - wip
             </textarea>
           </section>
         </section>
