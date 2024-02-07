@@ -179,7 +179,6 @@
               .mt-1 {
                 margin-top: 0.25rem;
               }
-
               .pt-1 {
                 padding-top: 0.25rem;
               }
@@ -214,11 +213,9 @@
               .mt-1 {
                 margin-top: 0.25rem;
               }
-
               .mt-2 {
                 margin-top: 0.5rem;
               }
-
               .pt-1 {
                 padding-top: 0.25rem;
               }
@@ -233,7 +230,7 @@
               ```jsx
               className={cx('mt-1', error && 'text-error-200')}
               ```
-              ```jsx
+              ```[]jsx
               className={cx(
                 'rounded-t bg-ui-0 shadow-lg outline-0',
                 'grid grid-rows-[1fr_2fr_3fr]',
@@ -509,7 +506,7 @@
               <p>Second</p>
             </div>
 
-            ```html
+            ```[]html
             <div>
               <p className="first:text-red">First</p>
               <p className="first:text-red">Second</p>
@@ -584,17 +581,19 @@
             <a href="http://www.example.com">Link</a>
             ```
             ---
-            Specify pseudo classes or multiple elements
+            Specify pseudo classes
             ```[]html
             <div className="has-[:checked]:bg-primary-30">
               <input type="checkbox" checked />
             </div>
             ```
+            or multiple elements (means and/or)
             ```[]html
             <div className="has-[span,button]:bg-primary-30">
               <button>Click</button>
             </div>
             ```
+            ---
             Expression can also be complex
             ```[]html
             <div className="has-[span+a>svg]:bg-primary-30">
@@ -669,13 +668,6 @@
             - Baseline
               ![](assets/align-baseline.png)
           </textarea>
-        </section>
-        <section data-visibility="hidden">
-          <img
-            src="https://devs.lol/uploads/2021/11/meme-dev-humor-css-is-easy-until-you-have-to-use-it-48.jpg"
-            alt=""
-            height="600"
-          />
         </section>
 
         <section
