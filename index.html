@@ -207,7 +207,8 @@
               ---
               When using Tailwind: Order of definition decides who wins, not the order in the `className` string
               ```jsx
-              const Blubb = () => <h1 className="mt-2 mt-1 pt-1">Has mt-2</h1>;
+              const Blubb = () =>
+                  <h1 className="mt-2 mt-1 pt-1">Has mt-2</h1>;
               ```
               ```[]css
               // output.css
@@ -299,11 +300,11 @@
               <p className="w-[calc(10rem+2px)]"></p>
               ```
               ```html
-              /* the same as w-[20%] */
+              <!-- the same as w-[20%] -->
               <p className="w-[calc(100%/5)]"></p>
               ```
               ```html
-              /* will be rounded to 2 */
+              <!-- will be rounded to 2 -->
               <p className="z-[calc(3/2)]"></p>
               ```
             </textarea>
