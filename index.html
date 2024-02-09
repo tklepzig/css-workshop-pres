@@ -118,6 +118,19 @@
           content: " (" attr(href) ")";
         }
       }
+
+      .peer-sample {
+        border: 1px solid #0089e5;
+
+        & > a,
+        & > div {
+          padding: 1rem;
+        }
+
+        & > a:hover ~ div {
+          background: #450;
+        }
+      }
     </style>
   </head>
   <body>
@@ -604,12 +617,73 @@
             </div>
             ```
             ---
-            ## Style depending on sibling-state: `peer-`
-            wip
+            ## `peer-` modifier
+            Style depending on sibling state
+            ```[]html
+            <a className="peer">Link</a>
+            <div className="peer-hover:bg-olive">Hover Indicator</div>
+            ```
+            <div class="peer-sample">
+              <a>Link</a>
+              <div>Hover Indicator</div>
+            </div>
             ---
-            ## Style depending on parent-state: `group-`
-            wip
+            Works only for previous siblings
+            ```[]html
+            <div className="peer-hover:bg-olive">Hover Indicator</div>
+            <a className="peer">Link</a>
+            ```
+            &rarr; Does not work! <!-- .element: class="alert" -->
             ---
+            - `peer-empty`
+            - `peer-disabled`
+            - `peer-first`
+            - ...
+            - Possible values depends on the actual element
+              - `peer-checked` won't work for a `div`
+            ---
+            ## Combine `peer-` with `has-`
+            ```[]html
+            <header className="peer">
+              Headline
+              <a>Link</a>
+            </header>
+            <article className="peer-has-[a:hover]:bg-brand-200">
+              Header link is hovered
+            </article>
+            ```
+            ---
+            ## `group-` modifier
+            - Style depending on parent state
+            - Works for any parent, not only the direct one
+            ```[]html
+            <div className="group">
+              <img src="nice-link-picture.jpg" alt="" />
+              <a>Link</a>
+              <p className="group-hover:bg-brand-200">
+                Link description
+              </p>
+            </div>
+            ```
+            ---
+            - `group-empty`
+            - `group-first`
+            - `group-odd`
+            - ...
+            - Possible values depends on the actual element
+            ---
+            ## Combine `group-` with `has-`
+            ```[]html
+            <div className="group">
+              <header className="group-has-[:checked]:bg-brand-200">
+                Headline
+              </header>
+              <input type="checkbox" />
+              <p className="group-has-[:checked]:bg-brand-200">
+                Description
+              </p>
+            </div>
+            ```
             </textarea>
           </section>
         </section>
