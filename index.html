@@ -142,20 +142,11 @@
         <section>
           <section data-markdown>
             <textarea data-template>
-            ## Agenda (WIP)
-            - Introduction
-            - Talk about stuff
-            - Exercise 1
-            - Lunch Break
-            - Talk about stuff
-            - Exercise 2
-            - Talk about stuff
-            - Exercise 3
-            ---
-            ## CSS, Do's and Don'ts WIP
-            - Write less CSS to do more
-            - Use smart new features of CSS
-            - How to approach writing the markup w/o using trial and error in the DevTools
+            ## Our Plan for Today
+            - Learn about basic CSS principles and their usage in Tailwind
+            - Small samples and live demos
+            - Get your hands dirty: Doing exercises in groups
+            - Question? *&rarr; Ask anytime*
             - Have fun!
             </textarea>
           </section>
@@ -167,16 +158,25 @@
             <textarea data-template>
               # Tailwind Basics
               ---
+              - Scans your files for used classes
+              - Files are specified in the `tailwind.config.js`
+              - Tailwind directives in the main CSS file provide the Tailwind classes
+
+              ```[]css
+              @tailwind base;
+              @tailwind components;
+              @tailwind utilities;
+              ```
+              ---
               ## In our exercise repo
               - `input.css`
-                - Tailwind Directives
+                - Our main CSS file with the Tailwind directives
               - `output.css`
-                - Final CSS
-              - Our design tokens are available
+                - The generated CSS file
               ---
               ## Tailwind Preflight
               - Enabled by default
-              - Is prepended to the `output.css`
+              - Is added to the generated CSS file
               - Resets all browser default styles
               - No overwrite of unwanted existing styles is needed
 
@@ -188,7 +188,7 @@
               const Blubb = () => <h1 className="mt-1 pt-1">Headline</h1>;
               ```
               ```[]css
-              // output.css
+              // generated CSS file
               .mt-1 {
                 margin-top: 0.25rem;
               }
@@ -203,7 +203,7 @@
                   <h1 className={`mb-${token} mt-1`}>Headline</h1>;
               ```
               ```[]css
-              // output.css
+              // generated CSS file
               .mt-1 {
                 margin-top: 0.25rem;
               }
@@ -216,13 +216,17 @@
               - Specificity Order: Inline > Id > Class > Element
               - `!important` overwrites everything, should be avoided
               ---
-              When using Tailwind: Order of definition decides who wins, not the order in the `className` string
+              - When using Tailwind: Only class names
+              - Order of definition decides who wins  
+
+              *&rarr; The order in the `className` string is completely irrelevant*
+              ---
               ```jsx
               const Blubb = () =>
                   <h1 className="mt-2 mt-1 pt-1">Has mt-2</h1>;
               ```
               ```[]css
-              // output.css
+              // generated CSS file
               .mt-1 {
                 margin-top: 0.25rem;
               }
@@ -316,6 +320,25 @@
               <!-- will be rounded to 2 -->
               <p className="z-[calc(3/2)]"></p>
               ```
+            </textarea>
+          </section>
+        </section>
+
+        <section>
+          <section data-markdown>
+            <textarea data-template>
+              # Learning by Doing
+              ---
+              ## Our Playground for Today
+              ```sh
+              $ git clone https://github.com/tklepzig/css-workshop-exercise
+              ```
+              Tailwind inclusive our design tokens are available  
+              &rarr; Follow instructions in readme
+              ---
+              wip
+              Exercise Image 1
+              Exercise Image 2
             </textarea>
           </section>
         </section>
@@ -740,33 +763,15 @@
         </section>
 
         <section>
-          <section data-markdown>
-            <textarea data-template>
-              # Our Playground for Today
-              ---
-              ## Exercise Repo
-              ```sh
-              $ git clone https://github.com/tklepzig/css-workshop-exercise
-              ```
-              ```sh
-              $ cd css-workshop-exercise
-              ```
-              ```sh
-              $ npm whoami 2>/dev/null || npm login
-              ```
-              ```sh
-              $ npm i
-              ```
-              ```sh
-              $ npm run dev
-              ```
-            </textarea>
+          <section data-markdown data-visibility="hidden">
+            <textarea data-template></textarea>
           </section>
         </section>
 
         <section data-markdown data-visibility="hidden">
           <textarea data-template>
-            - Media and Container Queries
+            # TODO
+            - Sample exists for slide? --> Add indicator to slide with sample name
             - Flex vs. Grid: Differences, Pros & Cons
             - "What is wrong here" questions
               ```
@@ -780,16 +785,9 @@
             - Implicit rows/cols, auto rows/cols
             - Positioning inside Grid (numbers, area, span, negative numbers)
             - A bit responsive design: repeat, minmax, auto-fit, auto-fill
-            ---
-            - Baseline
-              ![](assets/align-baseline.png)
+            - Baseline Alignment: ![](assets/align-baseline.png)
           </textarea>
         </section>
-
-        <section
-          data-visibility="hidden"
-          data-background="https://i.imgur.com/iWKad22.jpg"
-        ></section>
 
         <section>
           <img src="assets/the_end.svg" alt="" height="200" />
