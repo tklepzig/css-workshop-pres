@@ -717,13 +717,48 @@
             <textarea data-template>
             # Custom Properties (Variables)
             ---
-            - --name: value
-            - var(--name)
-            - var(--name, default)
-            - :root
-            - case sensitive
-            - Some nice and smart samples
-            wip
+            ## Benefits
+            - Allows to re-use arbitrary values
+            - Can be changed at runtime
+            - For various use cases
+              - Theming
+              - Differences between mobile and desktop
+              - Encapsulate design tokens
+              - ...
+            ---
+            ## Definition and Usage
+            ```css
+            div {
+              --bg-color: white;
+              background: var(--bg-color);
+            }
+            ```
+            ---
+            ## Scope
+            - Can be defined in any CSS rule
+            - The variable can be used in the element and its children
+            ---
+            ## Using `:root`
+            - Usually, variables are defined in the `:root` selector for global usage
+            - In HTML, `:root` refers to the `<html>` element
+            ```css
+            :root {
+              --bg-color: white;
+            }
+            div {
+              background: var(--bg-color);
+            }
+            ```
+            ---
+            ## Variables in Our Design System
+            - We use variables for our design tokens
+            - Some of them change their value depending on the screen size
+              - On Desktop, `var(--font-14px)` resolves to `14px`
+              - On Mobile, `var(--font-14px)` resolves to `18px`
+            - The name of the variable refers to the value on Desktop
+            ---
+            IDE IntelliSense for `text-base`
+            ![](assets/design-token-var.png)
             </textarea>
           </section>
         </section>
