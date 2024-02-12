@@ -131,6 +131,34 @@
           background: #450;
         }
       }
+
+      .flex {
+        border: 1px solid #0089e5;
+        margin: 1rem 0;
+        display: flex;
+        gap: 1rem;
+        align-items: start;
+
+        & > p {
+          margin: 0;
+          padding: 0.5rem 2rem;
+          text-align: center;
+        }
+
+        &.wrap {
+          flex-wrap: wrap;
+        }
+
+        &.col {
+          align-items: stretch;
+          flex-direction: column;
+          width: 30%;
+
+          & > p {
+            padding: 0.5rem 2rem;
+          }
+        }
+      }
     </style>
   </head>
   <body>
@@ -826,12 +854,151 @@
             # Flexbox
             ---
             - Suitable for simple one-dimensional layouts
-            - If too complex: Style splattered over parent and children
+            - Set via `flex` or `inline-flex`  
+            (see <span style="color: var(--r-heading-color)">Block vs. Inline</span>)
+            - Content can be wrapped
+            - Space between elements can be set via `gap`
+            ---
+            ## Flex Direction
+            - Default: Horizontally
+            <div class="flex">
+              <p class="olive">1</p>
+              <p class="olive">2</p>
+              <p class="olive">3</p>
+            </div>
+            - Vertical (Column Direction): `flex-col`
+            <div class="flex col">
+              <p class="olive">1</p>
+              <p class="olive">2</p>
+              <p class="olive">3</p>
+            </div>
+            ---
+            ## Alignment
+            - *Main Axis*: justify-content
+              - `justify-center`, `justify-start`, ...
+            - *Cross Axis*: align-items
+              - `items-center`, `items-start`, ...
+            ---
+            ![](assets/main-cross.png)
+            ![](assets/cross-main.png)
+            ---
+            ## justify-content
+            `justify-start` (default)
+            <div class="flex" style="justify-content: start">
+              <p class="olive">1</p>
+              <p class="olive">2</p>
+              <p class="olive">3</p>
+            </div>
+
+            `justify-between`
+            <div class="flex" style="justify-content: space-between">
+              <p class="olive">1</p>
+              <p class="olive">2</p>
+              <p class="olive">3</p>
+            </div>
+
+            `justify-evenly`
+            <div class="flex" style="justify-content: space-evenly">
+              <p class="olive">1</p>
+              <p class="olive">2</p>
+              <p class="olive">3</p>
+            </div>
+            ---
+            ## align-items
+            `items-center`
+            <div class="flex" style="height: 100px; align-items: center">
+              <p class="olive">1</p>
+              <p class="olive">2</p>
+              <p class="olive">3</p>
+            </div>
+
+            `items-stretch` (default)
+            <div class="flex" style="height: 100px; align-items: stretch">
+              <p class="olive">1</p>
+              <p class="olive">2</p>
+              <p class="olive">3</p>
+            </div>
+
+            `items-baseline`
+            <div class="flex" style="height: 100px; align-items: baseline">
+              <p class="olive">1</p>
+              <p class="olive" style="font-size: 1rem">2</p>
+              <p class="olive">3</p>
+            </div>
+            ---
+            ## Baseline Alignment
+            - Aligns against the baseline of text
+            - `items-baseline`
+            ![](assets/align-baseline.png)
+            ---
+            ## Self Alignment
+            - Child can overwrite cross axis alignment: align-self
+            - `self-end`, `self-center`, ...
+            <div class="flex" style="height: 150px;">
+              <p class="olive">1</p>
+              <p class="olive" style="align-self: end;">2</p>
+              <p class="olive">3</p>
+            </div>
+            ```html
+            <div class="self-end">2</div>
+            ```
+            ---
+            ## Flex Wrap
+            - Default: No wrapping
+            - Set via `flex-wrap` or `flex-nowrap`
+            <div class="flex wrap" style="height: 300px; width: 500px;">
+              <p class="olive">1</p>
+              <p class="olive">2</p>
+              <p class="olive">3</p>
+              <p class="olive">4</p>
+            </div>
+            ---
+            ## Align Content
+            - Sets the alignment of the wrapped lines aling the cross axis
+            - Example: `content-center` and `content-start`
+            <div class="flex" style="border: none;">
+              <div class="flex wrap" style="height: 300px; width: 500px; align-content: center;">
+                <p class="olive">1</p>
+                <p class="olive">2</p>
+                <p class="olive">3</p>
+                <p class="olive">4</p>
+              </div>
+              <div class="flex wrap" style="height: 300px; width: 500px; align-content: start;">
+                <p class="olive">1</p>
+                <p class="olive">2</p>
+                <p class="olive">3</p>
+                <p class="olive">4</p>
+              </div>
+            </div>
+            ---
+            ## Child Attribute order
+            - Can change the visual order of the elements
+            - `order-1`, `order-2`, ...
+            - Does not affect the tab order!
+            <div class="flex">
+              <p class="olive">1</p>
+              <p class="olive">2</p>
+              <p class="olive" style="order: -1">3</p>
+            </div>
+            ```html
+            <div class="-order-1">3</div>
+            ```
+            ---
+            ## Child Attribute flex
+            - Sets the behaviour and desired length of the element along the main axis
+            - Consists of three parts
+              - `grow` &rarr; Can the element grow?
+              - `shrink` &rarr; Can the element shrink?
+              - `basis` &rarr; The desired length along the main axis
+            ---
+            ## When to use Flexbox
+            - Simple one-dimensional layout, no special requirements regarding the division of space
+            - When the content should wrap, ignoring an alignment between the lines
+            ---
+            ## When to avoid Flexbox
+            - More than a simple layout, space should be divided unevenly
+            - When complex layout is needed: Style splattered over parent and children
             - If two-dimensional: More HTML elements needed for nesting, markup gets bloated
-            - Width/Height vs flex-basis and strange values when growing or shrinking
-            - align-items, align-self, justify-content
-            - wrap -> align-content
-            - 2D flex layout zeigen als bad example --> Überleitung zu Grid
             </textarea>
           </section>
         </section>
@@ -870,7 +1037,6 @@
             - Implicit rows/cols, auto rows/cols
             - Positioning inside Grid (numbers, area, span, negative numbers)
             - A bit responsive design: repeat, minmax, auto-fit, auto-fill
-            - Baseline Alignment: ![](assets/align-baseline.png)
           </textarea>
         </section>
 
