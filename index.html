@@ -333,7 +333,7 @@
               ```sh
               $ git clone https://github.com/tklepzig/css-workshop-exercise
               ```
-              Tailwind inclusive our design tokens are available  
+              &rarr; Tailwind inclusive our design tokens are available  
               &rarr; Follow instructions in readme
               ---
               wip
@@ -770,14 +770,51 @@
             # Media and Container Queries
             ## - Just Grazing the Surface -
             ---
-            WIP
-            - Used for what
-            - Differences between media and container queries
-            - Query Syntax
-            - Not only size, also detect supported features
-              - touch, ...
-            - Container Query Units
-            - How to use in Tailwind (For Container Queries: separate plugin)
+            ## Media Queries
+            - Used for responsive design and feature detection
+            - Use breakpoints to define different style for different viewport sizes
+
+            ```[]css
+            @media (min-width: 640px) {
+              /* Mobile-first approach */
+            }
+            @media (max-width: 320px) {
+            /* Desktop-First approach */
+            }
+            ```
+            ---
+            Not only about size
+
+            ```[]css
+            @media (hover: none) {
+              /* No hover is supported */
+            }
+            @media (prefers-color-scheme: dark) {
+              /* User wants the dark mode */
+            }
+            @media (orientation: landscape) {
+              /* Device is in landscape orientation */
+            }
+            ```
+            And much more
+            ---
+            ## Using in Tailwind
+            - Tailwind provides a set of modifiers
+            - Mobile-first approach
+              - Style without any modifier is for smallest viewport and above
+              - Larger viewports can get custom style by adding a modifier
+            ```html
+            <div className="w-3 md:w-6 lg:w-7" />
+            ```
+            ---
+            ## Container Queries
+            - Using media queries, the viewport is the reference
+            - Container queries use a container element as reference
+            - The container defines itself by using the CSS prop `container`
+            - Children can use special units to define their style
+              - `1cqw` &rarr; 1% of the container's width
+            ---
+            ![](assets/container-sample.png)
             </textarea>
           </section>
         </section>
