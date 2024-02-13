@@ -1009,7 +1009,24 @@
             <textarea data-template>
             # Grid
             ---
-            wip
+            - Suitable for complex two-dimensional layouts
+            - Set via `grid` or `inline-grid`  
+            - Space between elements can be set via `gap-`
+              - Only row gap: `gap-y-`
+              - Only column gap: `gap-x-`
+            ---
+            ## Auto Flow
+            - Default: vertically
+            - Auto Flow
+            - Implicit Rows and Columns
+            - Auto Rows and Columns
+            - Explicit Rows and Columns
+            - repeat, fr, fixed length, auto
+            - Alignment
+              - justify-items, align-items, justify-content, align-content, justify-self, align-self
+            - Positioning inside Grid
+              - numbers, area, span, negative numbers
+            - A bit responsive design: repeat, minmax, auto-fit, auto-fill
             </textarea>
           </section>
         </section>
@@ -1018,26 +1035,6 @@
           <section data-markdown data-visibility="hidden">
             <textarea data-template></textarea>
           </section>
-        </section>
-
-        <section data-markdown data-visibility="hidden">
-          <textarea data-template>
-            # TODO
-            - Sample exists for slide? --> Add indicator to slide with sample name
-            - Flex vs. Grid: Differences, Pros & Cons
-            - "What is wrong here" questions
-              ```
-              .container {
-                grid: 1fr;
-                grid-template-areas: 'main';
-              }
-              ```
-            - Alignment (... baseline)
-            - Ways of defining rows/cols (repeat, fix, fr, fit-content(), min-content, max-content, auto)
-            - Implicit rows/cols, auto rows/cols
-            - Positioning inside Grid (numbers, area, span, negative numbers)
-            - A bit responsive design: repeat, minmax, auto-fit, auto-fill
-          </textarea>
         </section>
 
         <section>
