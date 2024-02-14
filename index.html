@@ -135,6 +135,7 @@
       .flex {
         border: 1px solid #0089e5;
         margin: 1rem 0;
+        padding: 0.5rem;
         display: flex;
         gap: 1rem;
         align-items: start;
@@ -143,6 +144,10 @@
           margin: 0;
           padding: 0.5rem 2rem;
           text-align: center;
+        }
+
+        &.p-0 {
+          padding: 0;
         }
 
         &.wrap {
@@ -875,7 +880,7 @@
             - Space between elements can be set via `gap`
             ---
             ## Flex Direction
-            - Default: Horizontally
+            - Default: Horizontal
             <div class="flex">
               <p class="olive">1</p>
               <p class="olive">2</p>
@@ -921,21 +926,21 @@
             ---
             ## align-items
             `items-center`
-            <div class="flex" style="height: 100px; align-items: center">
+            <div class="flex p-0" style="height: 90px; align-items: center">
               <p class="olive">1</p>
               <p class="olive">2</p>
               <p class="olive">3</p>
             </div>
 
             `items-stretch` (default)
-            <div class="flex" style="height: 100px; align-items: stretch">
+            <div class="flex p-0" style="height: 100px; align-items: stretch">
               <p class="olive">1</p>
               <p class="olive">2</p>
               <p class="olive">3</p>
             </div>
 
             `items-baseline`
-            <div class="flex" style="height: 100px; align-items: baseline">
+            <div class="flex p-0" style="height: 100px; align-items: baseline">
               <p class="olive">1</p>
               <p class="olive" style="font-size: 1rem">2</p>
               <p class="olive">3</p>
@@ -961,7 +966,7 @@
             ## Flex Wrap
             - Default: No wrapping
             - Set via `flex-wrap` or `flex-nowrap`
-            <div class="flex wrap" style="height: 300px; width: 500px;">
+            <div class="flex wrap" style="height: 300px; width: 300px;">
               <p class="olive">1</p>
               <p class="olive">2</p>
               <p class="olive">3</p>
@@ -969,16 +974,16 @@
             </div>
             ---
             ## Align Content
-            - Sets the alignment of the wrapped lines aling the cross axis
+            - Sets the alignment of the wrapped lines along the cross axis
             - Example: `content-center` and `content-start`
-            <div class="flex" style="border: none;">
-              <div class="flex wrap" style="height: 300px; width: 500px; align-content: center;">
+            <div class="flex" style="border: none; justify-content: space-evenly;">
+              <div class="flex wrap" style="height: 300px; width: 300px; align-content: center;">
                 <p class="olive">1</p>
                 <p class="olive">2</p>
                 <p class="olive">3</p>
                 <p class="olive">4</p>
               </div>
-              <div class="flex wrap" style="height: 300px; width: 500px; align-content: start;">
+              <div class="flex wrap" style="height: 300px; width: 300px; align-content: start;">
                 <p class="olive">1</p>
                 <p class="olive">2</p>
                 <p class="olive">3</p>
