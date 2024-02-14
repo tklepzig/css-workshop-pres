@@ -164,6 +164,25 @@
           }
         }
       }
+
+      .grid {
+        display: grid;
+        border: 1px solid #0089e5;
+        margin: 1rem 0;
+        padding: 0.5rem;
+        gap: 1rem;
+        justify-content: start;
+
+        &.flow-c {
+          grid-auto-flow: column;
+        }
+
+        & > p {
+          margin: 0;
+          padding: 0.5rem 2rem;
+          text-align: center;
+        }
+      }
     </style>
   </head>
   <body>
@@ -863,8 +882,8 @@
             https://github.com/tailwindlabs/tailwindcss-container-queries
 
             ```[]html
-            <div class="@container">
-              <div class="w-3 @md:w-6 @lg:w-7" />
+            <div className="@container">
+              <div className="w-3 @md:w-6 @lg:w-7" />
             </div>
             ```
             ---
@@ -966,7 +985,7 @@
               <p class="olive">3</p>
             </div>
             ```html
-            <div class="self-end">2</div>
+            <div className="self-end">2</div>
             ```
             ---
             ## Flex Wrap
@@ -1007,7 +1026,7 @@
               <p class="olive" style="order: -1">3</p>
             </div>
             ```html
-            <div class="-order-1">3</div>
+            <div className="-order-1">3</div>
             ```
             ---
             ## Child Attribute flex
@@ -1042,16 +1061,105 @@
               - Only column gap: `gap-x-`
             ---
             ## Auto Flow
-            - Default: vertically
-            - Auto Flow
-            - Implicit Rows and Columns
-            - Auto Rows and Columns
-            - Explicit Rows and Columns
-            - repeat, fr, fixed length, auto
+            - Vertical: `grid-flow-row` (default)
+            <div class="grid" style="width: fit-content">
+              <p class="teal">1</p>
+              <p class="teal">2</p>
+              <p class="teal">3</p>
+            </div>
+            - Horizontal: `grid-flow-col`
+            <div class="grid flow-c">
+              <p class="teal">1</p>
+              <p class="teal">2</p>
+              <p class="teal">3</p>
+            </div>
+            ---
+            ## Explicit Rows and Columns
+            - `grid-rows-` and `grid-cols-`
+            - E.g. `grid-cols-[200px_100px_300px]`
+            <div class="grid" style="grid-template-columns: 200px 100px 300px;">
+              <p class="teal">1</p>
+              <p class="teal">2</p>
+              <p class="teal">3</p>
+            </div>
+            ---
+            ## Units for defining Rows and Columns
+            - Fixed length: `px`, `cm`, ...
+            - Relative length: `%`, `rem`, ...
+            - `auto`: The size of the content
+            ---
+            ## The `fr` Unit
+            - Fraction of the available space
+            - Can be used for defining a ratio or for filling up the remaining space
+            - E.g. `grid-cols-[1fr_2fr_3fr]`
+            <div class="grid" style="grid-template-columns: 1fr 2fr 3fr;">
+              <p class="teal">1</p>
+              <p class="teal">2</p>
+              <p class="teal">3</p>
+            </div>
+            ---
+            ## Using `repeat`
+            - Repeat a given pattern
+            - Instead of `grid-cols-[1fr_1fr_1fr]`  
+            &rarr; `grid-cols-[repeat(3,1fr)]`
+            - Also a whole pattern can be repeated  
+            &rarr; `grid-cols-[repeat(3,1fr_2fr)]`
+            ---
+            ## Implicit Rows and Columns
+            - When no explicit rows or columns are defined
+            - When there are more elements than defined rows or columns
+            - The grid will create implicit rows or columns
+            - Depending on the auto flow rows or columns are created
+            ---
+            ```[]html
+            <div className="grid-cols-[1fr_1fr] grid-flow-col">
+              <p>1</p>
+              <p>2</p>
+              <p>3</p>
+            </div>
+            ```
+
+            <div class="grid" style="grid-template-columns: 1fr 1fr; grid-auto-flow: column;">
+              <p class="teal">1</p>
+              <p class="teal">2</p>
+              <p class="teal">3</p>
+            </div>
+
+            *&rarr; One more column than defined*
+            ---
+            ## Style Implicit Rows and Columns
+            - Define the style for implicit rows and columns if they appear
+            - `auto-rows-` and `auto-cols-`
+            - E.g. `auto-cols-[2fr]`
+            <div class="grid" style="grid-template-columns: 1fr 1fr; grid-auto-flow: column; grid-auto-columns: 2fr;">
+              <p class="teal">1</p>
+              <p class="teal">2</p>
+              <p class="teal">3</p>
+            </div>
+            ---
+            Can also be a pattern
+            ```[]html
+            <div className="... auto-cols-[2fr_4fr]">
+              <p>1</p>
+              <p>2</p>
+              <p>3</p>
+              <p>4</p>
+              <p>5</p>
+            </div>
+            ```
+
+            <div class="grid" style="grid-template-columns: 1fr 1fr; grid-auto-flow: column; grid-auto-columns: 2fr 4fr;">
+              <p class="teal">1</p>
+              <p class="teal">2</p>
+              <p class="teal">3</p>
+              <p class="teal">4</p>
+              <p class="teal">5</p>
+            </div>
+            ---
             - Alignment
               - justify-items, align-items, justify-content, align-content, justify-self, align-self
             - Positioning inside Grid
-              - numbers, area, span, negative numbers
+            - numbers, area, span, negative numbers --> which also creates implicit rows and columns
             - A bit responsive design: repeat, minmax, auto-fit, auto-fill
             </textarea>
           </section>
