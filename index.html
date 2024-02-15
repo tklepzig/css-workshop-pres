@@ -137,7 +137,7 @@
         margin: 1rem 0;
         padding: 0.5rem;
         display: flex;
-        gap: 1rem;
+        gap: 0.5rem;
         align-items: start;
 
         & > p {
@@ -170,8 +170,12 @@
         border: 1px solid #0089e5;
         margin: 1rem 0;
         padding: 0.5rem;
-        gap: 1rem;
+        gap: 0.5rem;
         justify-content: start;
+
+        &.b-0 {
+          border: none;
+        }
 
         &.flow-c {
           grid-auto-flow: column;
@@ -1156,8 +1160,137 @@
               <p class="teal">5</p>
             </div>
             ---
-            - Alignment
-              - justify-items, align-items, justify-content, align-content, justify-self, align-self
+            ## Horizontal Alignment
+            - justify-items
+              - Aligns the content inside the grid cells
+              - E.g. `justify-items-start`, `justify-items-end`
+            - justify-content
+              - Aligns the cells inside the grid
+              - E.g. `justify-start`, `justify-end`
+            ---
+            ## justify-items
+            `justify-items-start`
+            <div class="grid" style="grid: 1fr 1fr / 1fr 1fr; justify-items: start">
+              <p class="teal">1</p>
+              <p class="teal">2</p>
+              <p class="teal">3</p>
+              <p class="teal">4</p>
+            </div>
+
+            `justify-items-end`
+            <div class="grid" style="grid: 1fr 1fr / 1fr 1fr; justify-items: end">
+              <p class="teal">1</p>
+              <p class="teal">2</p>
+              <p class="teal">3</p>
+              <p class="teal">4</p>
+            </div>
+
+            ```
+            className="grid grid-cols-[1fr_1fr] grid-rows-[1fr_1fr]"
+            ```
+            ---
+            ## justify-content
+            `justify-start`
+            <div class="grid" style="grid: repeat(2, auto) / repeat(2, auto); justify-content: start">
+              <p class="teal">1</p>
+              <p class="teal">2</p>
+              <p class="teal">3</p>
+              <p class="teal">4</p>
+            </div>
+
+            `justify-end`
+            <div class="grid" style="grid: repeat(2, auto) / repeat(2, auto); justify-content: end">
+              <p class="teal">1</p>
+              <p class="teal">2</p>
+              <p class="teal">3</p>
+              <p class="teal">4</p>
+            </div>
+
+            ```
+            className="grid grid-cols-[auto_auto] grid-rows-[auto_auto]"
+            ```
+            ---
+            ## Vertical Alignment
+            - align-items
+              - Aligns the content inside the grid cells
+              - E.g. `items-start`, `items-end`
+            - align-content
+              - Aligns the cells inside the grid
+              - E.g. `content-start`, `content-end`
+            ---
+            ## align-items
+            <div class="grid b-0" style="grid: auto 1fr / 1fr 1fr">
+              <code style="justify-self: center">items-start</code>
+              <code style="justify-self: center">items-end</code>
+              <div class="grid" style="grid: 1fr 1fr / 1fr 1fr; align-items: start; height: 300px;">
+                <p class="teal">1</p>
+                <p class="teal">2</p>
+                <p class="teal">3</p>
+                <p class="teal">4</p>
+              </div>
+              <div class="grid" style="grid: 1fr 1fr / 1fr 1fr; align-items: end; height: 300px;">
+                <p class="teal">1</p>
+                <p class="teal">2</p>
+                <p class="teal">3</p>
+                <p class="teal">4</p>
+              </div>
+            </div>
+
+            ```
+            className="grid grid-cols-[1fr_1fr] grid-rows-[1fr_1fr]"
+            ```
+            ---
+            ## align-content
+            <div class="grid b-0" style="grid: auto 1fr / 1fr 1fr">
+              <code style="justify-self: center">content-start</code>
+              <code style="justify-self: center">content-end</code>
+              <div class="grid" style="grid: repeat(2, auto) / repeat(2, 1fr); align-content: start; height: 300px;">
+                <p class="teal">1</p>
+                <p class="teal">2</p>
+                <p class="teal">3</p>
+                <p class="teal">4</p>
+              </div>
+              <div class="grid" style="grid: repeat(2, auto) / repeat(2, 1fr); align-content: end; height: 300px;">
+                <p class="teal">1</p>
+                <p class="teal">2</p>
+                <p class="teal">3</p>
+                <p class="teal">4</p>
+              </div>
+            </div>
+
+            ```
+            className="grid grid-cols-[auto_auto] grid-rows-[1fr_1fr]"
+            ```
+            ---
+            ## Self Alignment
+            - Child can overwrite alignment inside cell
+            - justify-self
+              - Horizontal Alignment
+              - E.g. `justify-self-start`, `justify-self-end`
+            - align-self
+              - Vertical Alignment
+              - E.g. `content-start`, `content-end`
+            ---
+            `justify-items-start`  
+            <div class="grid" style="grid: repeat(2, 1fr) / repeat(2, 1fr); justify-items: start">
+              <p class="teal">1</p>
+              <p class="teal" style="justify-self: end">2</p>
+              <p class="teal">3</p>
+              <p class="teal">4</p>
+            </div>
+
+            Tile 2 &rarr; `justify-self-end`
+            ---
+            `items-start`  
+            <div class="grid" style="grid: repeat(2, 1fr) / repeat(2, 1fr); align-items: start; height: 300px;">
+              <p class="teal">1</p>
+              <p class="teal" style="align-self: end">2</p>
+              <p class="teal">3</p>
+              <p class="teal">4</p>
+            </div>
+
+            Tile 2 &rarr; `self-end`
+            ---
             - Positioning inside Grid
             - numbers, area, span, negative numbers --> which also creates implicit rows and columns
             - A bit responsive design: repeat, minmax, auto-fit, auto-fill
