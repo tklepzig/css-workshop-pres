@@ -329,6 +329,9 @@
                 }})
               ({ pos: 'top' })}
               ```
+
+              Both `cx` and `cva` are provided by the  
+              `class-variance-authority` package
               ---
               ## IDE Configuration
               - Auto Completion and Details
@@ -985,7 +988,7 @@
             - `self-end`, `self-center`, ...
             <div class="flex" style="height: 150px;">
               <p class="olive">1</p>
-              <p class="olive" style="align-self: end;">2</p>
+              <p class="orange" style="align-self: end;">2</p>
               <p class="olive">3</p>
             </div>
             ```html
@@ -1274,22 +1277,27 @@
             `justify-items-start`  
             <div class="grid" style="grid: repeat(2, 1fr) / repeat(2, 1fr); justify-items: start">
               <p class="teal">1</p>
-              <p class="teal" style="justify-self: end">2</p>
+              <p class="orange" style="justify-self: end">2</p>
               <p class="teal">3</p>
               <p class="teal">4</p>
             </div>
 
-            Tile 2 &rarr; `justify-self-end`
+            ```html
+            <div className="justify-self-end">2</div>
+            ```
             ---
             `items-start`  
             <div class="grid" style="grid: repeat(2, 1fr) / repeat(2, 1fr); align-items: start; height: 300px;">
               <p class="teal">1</p>
-              <p class="teal" style="align-self: end">2</p>
+              <p class="orange" style="align-self: end">2</p>
               <p class="teal">3</p>
               <p class="teal">4</p>
             </div>
 
-            Tile 2 &rarr; `self-end`
+            ```html
+            <div className="self-end">2</div>
+            ```
+            ---
             ---
             - Positioning inside Grid
             - numbers, area, span, negative numbers --> which also creates implicit rows and columns
