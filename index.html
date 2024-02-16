@@ -37,6 +37,10 @@
         background: #036;
       }
 
+      .hidden {
+        display: none;
+      }
+
       .sticky-container-v {
         overflow: auto;
         width: 26rem;
@@ -1407,24 +1411,29 @@
               <p class="teal" style="grid-area: main">Main</p>
               <p class="teal" style="grid-area: side">Side</p>
             </div>
-            ---
-            - A bit responsive design: repeat, minmax, auto-fit, auto-fill
             </textarea>
           </section>
         </section>
 
         <section>
-          <section data-markdown data-visibility="hidden">
-            <textarea data-template></textarea>
+          <section data-markdown>
+            <textarea data-template>
+              ## Grid and Responsive Design
+              ### *Live Demo*
+            </textarea>
           </section>
         </section>
 
         <section>
-          <img
-            src="https://media.slid.es/uploads/2041992/images/9184753/any-questions.gif"
-            alt=""
-            width="900"
-          />
+          <div class="any-questions">
+            <canvas class="hidden" width="900" height="506"></canvas>
+            <img
+              src="https://media.slid.es/uploads/2041992/images/9184753/any-questions.gif"
+              alt=""
+              width="900"
+              height="506"
+            />
+          </div>
         </section>
 
         <section>
@@ -1454,6 +1463,15 @@
         // Learn about plugins: https://revealjs.com/plugins/
         plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
       });
+
+      setTimeout(() => {
+        const canvas = document.querySelector(".any-questions canvas");
+        const image = document.querySelector(".any-questions img");
+        canvas.getContext("2d").drawImage(image, 0, 0, 900, 506);
+        image.classList.toggle("hidden");
+        canvas.classList.toggle("hidden");
+        // gif has a length of 3820ms, stop it after playing it two times
+      }, 7_640);
     </script>
   </body>
 </html>
