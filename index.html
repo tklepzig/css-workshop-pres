@@ -1298,9 +1298,116 @@
             <div className="self-end">2</div>
             ```
             ---
+            ## Positioning inside Grid
+            - Via number of column/row
+            - Starts with `1`
+            - Grid with *4* columns: Ends with `5`
+            - Start of Cell: `col-start-` / `row-start-`
+            - End of Cell: `col-end-` / `row-end-`
             ---
-            - Positioning inside Grid
-            - numbers, area, span, negative numbers --> which also creates implicit rows and columns
+            <div class="grid" style="grid: 1fr / repeat(4, 1fr);">
+              <p class="teal">1</p>
+              <p class="teal">2</p>
+              <p class="teal">3</p>
+              <p class="orange" style="grid-column: 2 / 5">4</p>
+            </div>
+
+            ```[]html
+            <div className="grid grid-cols-[repeat(4,1fr)]">
+              ...
+              <div className="col-start-2 col-end-5">4</div>
+            </div>
+            ```
+            ---
+            ## Put the Cell beyond the Universe
+            ```[]html
+            <div className="grid grid-cols-[repeat(4,1fr)]">
+              ...
+              <div className="col-start-5">4</div>
+            </div>
+            ```
+            <div class="grid fragment" data-fragment-index="2" style="grid: 1fr / repeat(4, 1fr);">
+              <p class="teal">1</p>
+              <p class="teal">2</p>
+              <p class="teal">3</p>
+              <p class="orange" style="grid-column: 5">4</p>
+            </div>
+            ---
+            ## Spanning Cells
+            `col-span-` / `row-span-`
+
+            <div class="grid" style="grid: 1fr / repeat(4, 1fr);">
+              <p class="teal">1</p>
+              <p class="teal">2</p>
+              <p class="teal">3</p>
+              <p class="orange" style="grid-column: 2 / span 3">4</p>
+            </div>
+
+            ```html
+            <div className="col-start-2 col-span-3">4</div>
+            ```
+            ---
+            ## Grid Areas
+            - Define named areas of the grid
+            - No need for using numbers for positioning a cell
+            - Useful for grids with a lot of spans and specific column/row assignments
+            - Can be defined via arbitrary values or by using CSS modules
+            ---
+            ## CSS Modules
+            - npm package: `css-modules`
+            - Allows importing a CSS file
+            - Filename has to end with `.module.css`
+            ---
+            ## Definition
+
+            ```css
+            /* Grid.module.css */
+            .myGrid {
+              display: grid;
+              grid-template-columns: repeat(2, 1fr);
+              grid-template-rows: repeat(2, 1fr);
+              grid-template-areas:
+                  "nav nav"
+                  "main side";
+            }
+            ```
+            ---
+            ## Usage
+
+            ```ts
+            import styles from "./Grid.module.css";
+            ```
+
+            ```[]html
+            <div className={styles.myGrid}>
+              <p className="[grid-area:nav]">Navigation</p>
+              <p className="[grid-area:main]">Main</p>
+              <p className="[grid-area:side]">Side</p>
+            </div>
+            ```
+
+            <div class="grid" style="grid: 'nav nav' 1fr ' main side' 1fr / 1fr 1fr">
+              <p class="teal" style="grid-area: nav">Navigation</p>
+              <p class="teal" style="grid-area: main">Main</p>
+              <p class="teal" style="grid-area: side">Side</p>
+            </div>
+            ---
+            ## Using arbitrary values
+            ```[]html
+            <div className="grid grid-cols-2 grid-rows-2
+                            [grid-template-areas:'nav_nav''main_side']">
+              <p className="[grid-area:nav]">Navigation</p>
+              <p className="[grid-area:main]">Main</p>
+              <p className="[grid-area:side]">Side</p>
+            </div>
+            ```
+
+            <div class="grid" style="grid: 'nav nav' 1fr ' main side' 1fr / 1fr 1fr">
+              <p class="teal" style="grid-area: nav">Navigation</p>
+              <p class="teal" style="grid-area: main">Main</p>
+              <p class="teal" style="grid-area: side">Side</p>
+            </div>
+            ---
             - A bit responsive design: repeat, minmax, auto-fit, auto-fill
             </textarea>
           </section>
