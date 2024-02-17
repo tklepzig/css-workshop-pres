@@ -1385,8 +1385,60 @@
             <div className="self-end">2</div>
             ```
             ---
+            <div class="grid" style="grid: 1fr / repeat(3, 1fr)">
+              <p class="teal grid b-0" style="font-size: 1.5rem; justify-content: center; grid-template-rows: auto 1fr auto;">
+                <span style="font-size: 1.5em;">Title</span>
+                <span>Subtitle</span>
+                <span style="font-size: 0.75em;">Footer</span>
+              </p>
+              <p class="teal grid b-0" style="font-size: 1.5rem; justify-content: center; grid-template-rows: auto 1fr auto;">
+                <span style="font-size: 1.5em;">Title which breaks onto a new line</span>
+                <span>Subtitle</span>
+                <span style="font-size: 0.75em;">Footer</span>
+              </p>
+              <p class="teal grid b-0" style="font-size: 1.5rem; justify-content: center; grid-template-rows: auto 1fr auto;">
+                <span style="font-size: 1.5em;">Title</span>
+                <span>Subtitle also somewhat longer so it breaks</span>
+                <span style="font-size: 0.75em;">Footer</span>
+              </p>
+            </div>
+
+            ```html
+            <div className="grid grid-rows-1" />
+              <p className="grid grid-rows-[auto_1fr_auto]" />
+            </div>
+            ```
+            *&rarr; How to align tile content with each other?*
+            ---
             ## Subgrid
-            TODO
+            - Inherits the grid definition (rows and columns) from the parent grid
+            - Ensures all children grids align with each other
+            - Child needs to span the amount of columns/rows which should be used inside
+            - `grid-rows-subgrid`, `grid-cols-subgrid`
+            ---
+            <div class="grid" style="grid: auto 1fr auto / repeat(3, 1fr)">
+              <p class="teal grid b-0" style="font-size: 1.5rem; grid-row: span 3; justify-content: center; grid-template-rows: subgrid;">
+                <span style="font-size: 1.5em;">Title</span>
+                <span>Subtitle</span>
+                <span style="font-size: 0.75em;">Footer</span>
+              </p>
+              <p class="teal grid b-0" style="font-size: 1.5rem; grid-row: span 3; justify-content: center; grid-template-rows: subgrid;">
+                <span style="font-size: 1.5em;">Title which breaks onto a new line</span>
+                <span>Subtitle</span>
+                <span style="font-size: 0.75em;">Footer</span>
+              </p>
+              <p class="teal grid b-0" style="font-size: 1.5rem; grid-row: span 3; justify-content: center; grid-template-rows: subgrid;">
+                <span style="font-size: 1.5em;">Title</span>
+                <span>Subtitle also somewhat longer so it breaks</span>
+                <span style="font-size: 0.75em;">Footer</span>
+              </p>
+            </div>
+
+            ```html
+            <div className="grid grid-rows-[auto_1fr_auto]" />
+              <p className="grid row-span-3 grid-rows-subgrid" />
+            </div>
+            ```
             ---
             ## Positioning inside Grid
             - Via number of column/row
