@@ -197,32 +197,32 @@
     <div class="reveal">
       <div class="slides">
         <section>
-          <img src="assets/awesome.svg" alt="" height="600" />
-        </section>
-        <section data-markdown>
-          <textarea data-template>
-          # "Design Adjustments are needed"
-          ## And you're like
-          </textarea>
-        </section>
+          <section>
+            <img src="assets/awesome.svg" alt="" height="600" />
+          </section>
+          <section data-markdown>
+            <textarea data-template>
+              # "Design Adjustments are needed"
+              ## And you're like
+            </textarea>
+          </section>
 
-        <section
-          data-background-image="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExc3owNjUxdXk5NnBnYWx4dGFla2E3a2V6NGNiY2c2MzcwdXlwZnZwYyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3o7TKqnN349PBUtGFO/giphy.gif"
-          data-background-size="50%"
-        ></section>
+          <section
+            data-background-image="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExc3owNjUxdXk5NnBnYWx4dGFla2E3a2V6NGNiY2c2MzcwdXlwZnZwYyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3o7TKqnN349PBUtGFO/giphy.gif"
+            data-background-size="50%"
+          ></section>
 
-        <section data-markdown>
-          <textarea data-template>
-          # "Working in DevTools"
-          </textarea>
-        </section>
+          <section data-markdown>
+            <textarea data-template>
+              # "Working in DevTools"
+            </textarea>
+          </section>
 
-        <section
-          data-background-image="https://gifdb.com/images/high/hammer-480-x-360-gif-pgou2skl1bzhhdsm.gif"
-          data-background-size="50%"
-        ></section>
+          <section
+            data-background-image="https://gifdb.com/images/high/hammer-480-x-360-gif-pgou2skl1bzhhdsm.gif"
+            data-background-size="50%"
+          ></section>
 
-        <section>
           <section data-markdown>
             <textarea data-template>
               # CSS can actually be fun!
@@ -396,8 +396,8 @@
               ---
               ## Different Types
               - Absolute Units (`px`, `cm`, `mm`, ...)
-              - Relative Units based on parent font (`em`, ...)
-              - Relative Units based on root font (`rem`, ...)
+              - Relative to parent (`%`, `em`, ...)
+              - Relative to root element (`rem`, ...)
               - Relative Units based on viewport (`vw`, `vh`, ...)
               - Special Units, only valid in certain contexts (Grid, Container Queries, ...)
               ---
@@ -452,7 +452,7 @@
               - ...
             ---
             ## Definition and Usage
-            ```css
+            ```[]css
             div {
               --bg-color: white;
               background: var(--bg-color);
@@ -466,7 +466,7 @@
             ## Using `:root`
             - Usually, variables are defined in the `:root` selector for global usage
             - In HTML, `:root` refers to the `<html>` element
-            ```css
+            ```[]css
             :root {
               --bg-color: white;
             }
@@ -627,6 +627,14 @@
           </section>
         </section>
 
+        <section>
+          <section data-markdown>
+            <textarea data-template>
+              # Learning by Doing
+            </textarea>
+          </section>
+        </section>
+
         <!--Inline vs. Block-->
         <section>
           <section data-markdown>
@@ -689,6 +697,14 @@
               - Block elements arrange themselves vertically
 
               *&rarr; No need for flex or grid*
+            </textarea>
+          </section>
+        </section>
+
+        <section>
+          <section data-markdown>
+            <textarea data-template>
+              # Learning by Doing
             </textarea>
           </section>
         </section>
@@ -880,6 +896,14 @@
           </section>
         </section>
 
+        <section>
+          <section data-markdown>
+            <textarea data-template>
+              # Learning by Doing
+            </textarea>
+          </section>
+        </section>
+
         <!--Media and Container Queries-->
         <section>
           <section data-markdown>
@@ -942,6 +966,14 @@
             ```
             ---
             ![](assets/container-sample.png)
+            </textarea>
+          </section>
+        </section>
+
+        <section>
+          <section data-markdown>
+            <textarea data-template>
+              # Learning by Doing
             </textarea>
           </section>
         </section>
@@ -1098,6 +1130,14 @@
             - More than a simple layout, space should be divided unevenly
             - When complex layout is needed: Style splattered over parent and children
             - If two-dimensional: More HTML elements needed for nesting, markup gets bloated
+            </textarea>
+          </section>
+        </section>
+
+        <section>
+          <section data-markdown>
+            <textarea data-template>
+              # Learning by Doing
             </textarea>
           </section>
         </section>
@@ -1410,7 +1450,7 @@
             ---
             ## Definition
 
-            ```css
+            ```[]css
             /* Grid.module.css */
             .myGrid {
               display: grid;
@@ -1464,22 +1504,26 @@
         <section>
           <section data-markdown>
             <textarea data-template>
-              ## Grid and Responsive Design
-              ### *Live Demo*
+              # Learning by Doing
             </textarea>
           </section>
         </section>
 
-        <section>
-          <div class="any-questions">
-            <canvas class="hidden" width="900" height="506"></canvas>
-            <img
-              src="https://media.slid.es/uploads/2041992/images/9184753/any-questions.gif"
-              alt=""
-              width="900"
-              height="506"
-            />
-          </div>
+        <section data-markdown data-visibility="hidden">
+          <textarea data-template>
+            # Grid and Responsive Design
+            ## *- Live Demo -*
+          </textarea>
+        </section>
+
+        <section class="questions">
+          <canvas class="hidden" width="900" height="506"></canvas>
+          <img
+            src="https://media.slid.es/uploads/2041992/images/9184753/any-questions.gif"
+            alt=""
+            width="900"
+            height="506"
+          />
         </section>
 
         <section>
@@ -1510,14 +1554,21 @@
         plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
       });
 
-      setTimeout(() => {
-        const canvas = document.querySelector(".any-questions canvas");
-        const image = document.querySelector(".any-questions img");
-        canvas.getContext("2d").drawImage(image, 0, 0, 900, 506);
-        image.classList.toggle("hidden");
-        canvas.classList.toggle("hidden");
-        // gif has a length of 3820ms, stop it after playing it two times
-      }, 7_640);
+      Reveal.on("slidechanged", (e) => {
+        let timerId = 0;
+        if (e.currentSlide.classList.contains("questions")) {
+          timerId = setTimeout(() => {
+            const canvas = document.querySelector(".questions > canvas");
+            const image = document.querySelector(".questions > img");
+            canvas.getContext("2d").drawImage(image, 0, 0, 900, 506);
+            image.classList.toggle("hidden");
+            canvas.classList.toggle("hidden");
+            // gif has a length of 3820ms, stop it after playing it two times
+          }, 7_640);
+        } else {
+          clearTimeout(timerId);
+        }
+      });
     </script>
   </body>
 </html>
