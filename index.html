@@ -266,6 +266,10 @@
               </div>
             </textarea>
           </section>
+          <section
+            data-background-image="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExd3V4ZXdteWRucmpvM3c3b3RlY2J6Z3B0MjVmZHM5d21ubnM3Z3EyMyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/VhpuNI1KejNbBGXCxS/giphy.gif"
+            data-background-size="50%"
+          ></section>
         </section>
 
         <!--tailwind basics-->
@@ -435,7 +439,7 @@
               <p className="w-[calc(100%-20px)]"></p>
               ```
               ```html
-              <p className="w-[calc(10rem+2px)]"></p>
+              <p className="h-[calc(10rem+2px)]"></p>
               ```
               ```html
               <!-- the same as w-[20%] -->
@@ -773,7 +777,7 @@
             ```[]html
             <a
               href="http://www.example.com"
-              className="after:italic after:content-['_Click_me']">
+              className="after:italic after:content-['_(Click_me)']">
               Link
             </a>
             ```
@@ -815,7 +819,7 @@
             <a href="http://www.example.com">Link</a>
             ```
             ---
-            Specify pseudo classes
+            Use pseudo classes
             ```[]html
             <div className="has-[:checked]:bg-primary-30">
               <input type="checkbox" checked />
@@ -849,13 +853,20 @@
               <div>Hover Indicator</div>
             </div>
             ---
+            ## Order Matters
             Works only for previous siblings
             ```[]html
             <div className="peer-hover:bg-olive">Hover Indicator</div>
             <a className="peer">Link</a>
             ```
-            &rarr; Does not work! <!-- .element: class="alert" -->
+            <div class="peer-sample">
+              <div>Hover Indicator</div>
+              <a>Link</a>
+            </div>
+
+            &rarr; Hover Indicator doesn't change <!-- .element: class="alert" -->
             ---
+            ## Various modifiers
             - `peer-empty`
             - `peer-disabled`
             - `peer-first`
@@ -887,6 +898,7 @@
             </div>
             ```
             ---
+            ## Various modifiers
             - `group-empty`
             - `group-first`
             - `group-odd`
@@ -1071,8 +1083,7 @@
             </div>
             ---
             ## Baseline Alignment
-            - Aligns against the baseline of text
-            - `items-baseline`
+            Aligns against the line where normal letters (like `a`) start (vertically)
             ![](assets/align-baseline.png)
             ---
             ## Self Alignment
@@ -1137,7 +1148,7 @@
             ---
             ## When to use Flexbox
             - Simple one-dimensional layout, no special requirements regarding the division of space
-            - When the content should wrap, ignoring an alignment between the lines
+            - When the content should wrap, ignoring the alignment between the children of different lines
             ---
             ## When to avoid Flexbox
             - More than a simple layout, space should be divided unevenly
@@ -1362,7 +1373,7 @@
             </div>
 
             ```
-            className="grid grid-cols-[auto_auto] grid-rows-[1fr_1fr]"
+            className="grid grid-cols-[1fr_1fr] grid-rows-[auto_auto]"
             ```
             ---
             ## Self Alignment
@@ -1398,6 +1409,7 @@
             <div className="self-end">2</div>
             ```
             ---
+            ## Alignment Issue
             <div class="grid" style="grid: 1fr / repeat(3, 1fr)">
               <p class="teal grid b-0" style="font-size: 1.5rem; justify-content: center; grid-template-rows: auto 1fr auto;">
                 <span style="font-size: 1.5em;">Title</span>
