@@ -325,6 +325,7 @@
               }
               ```
               ---
+              ## "Generated During Build"
               ```[]jsx
               const token = "2";
               const Blubb = () =>
@@ -351,7 +352,8 @@
               ## Specificity
               - Besides the order of definition, specificity defines which CSS rule wins
               - Specificity Order: Inline > Id > Class > Element
-              - `!important` overwrites everything, should be avoided
+              - `important` overwrites everything, should be avoided
+                - E.g. `!bg-red-100`
               ---
               - When using Tailwind: Only class names
               - Order of definition decides who wins  
@@ -1148,7 +1150,7 @@
             ---
             ## When to use Flexbox
             - Simple one-dimensional layout, no special requirements regarding the division of space
-            - When the content should wrap, ignoring the alignment between the children of different lines
+            - When the content should wrap and the alignment between the children of different lines can be ignored
             ---
             ## When to avoid Flexbox
             - More than a simple layout, space should be divided unevenly
@@ -1387,7 +1389,7 @@
               - E.g. `justify-self-start`, `justify-self-end`
             - align-self
               - Vertical Alignment
-              - E.g. `content-start`, `content-end`
+              - E.g. `self-start`, `self-end`
             ---
             `justify-items-start`  
             <div class="grid" style="grid: repeat(2, 1fr) / repeat(2, 1fr); justify-items: start">
